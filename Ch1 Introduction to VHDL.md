@@ -18,3 +18,11 @@
 	* Attribute - An attribute is data that are attached to VHDL objects or predefined data about VHDL objects.
 	* Generic - A generic is VHDL’s term for a parameter that passes information to an entity.
 	* Process - A process is the basic unit of execution in VHDL.
+* VHDL Descriptions consist of primary design units and secondary design units. 
+	* The primary design units are the Entity and the Package. 
+	* The secondary design units are the Architecture and the Package Body. 
+	* Secondary design units are always related to a primary design unit. 
+	* Libraries are collections of primary and secondary design units.
+
+# Entity
+* A VHDL entity specifies the name of the entity, the ports of the entity, and entity-related information.
