@@ -15,3 +15,6 @@
 		* Driver is a source on a signal.
 		* If a signal is driven by two sources, then when both sources are active, the signal will have 2 drivers.
 	* Bus - a bus is a special kind of signal that may have its drivers turned off.
+	* Attribute - An attribute is data that are attached to VHDL objects or predefined data about VHDL objects.
+	* Generic - A generic is VHDL’s term for a parameter that passes information to an entity.
+	* Process - A process is the basic unit of execution in VHDL.
