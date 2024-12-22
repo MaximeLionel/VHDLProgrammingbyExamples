@@ -9,3 +9,9 @@
 		* One architecture might be behavioral while another might be a structural description of the design.
 	* Configuration:
 		* A configuration statement is used to bind a component instance to an entity-architecture pair.
+		* A configuration can be considered like a parts list for a design. It describes which behavior to use for each entity, much like a parts list describes which part to use for each part in the design.
+	* Package - A package is a collection of commonly used data types and subprograms used in a design.
+	* Driver:
+		* Driver is a source on a signal.
+		* If a signal is driven by two sources, then when both sources are active, the signal will have 2 drivers.
+	* Bus - a bus is a special kind of signal that may have its drivers turned off.
