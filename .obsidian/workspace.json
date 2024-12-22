@@ -11,10 +11,14 @@
             "id": "10d99aa3307ebb7c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Ch1 Introduction to VHDL.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Ch1 Introduction to VHDL"
             }
           }
         ]
@@ -73,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 272.5
+    "width": 272.5,
+    "collapsed": true
   },
   "right": {
     "id": "537d2f522145e4ec",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Ch1 Introduction to VHDL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Ch1 Introduction to VHDL"
             }
           },
           {
@@ -107,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Ch1 Introduction to VHDL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Ch1 Introduction to VHDL"
             }
           },
           {
@@ -132,17 +139,19 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "Ch1 Introduction to VHDL.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Ch1 Introduction to VHDL"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -155,6 +164,8 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "060e8217aa70e563",
-  "lastOpenFiles": []
+  "active": "4cffb169153bd706",
+  "lastOpenFiles": [
+    "Ch1 Introduction to VHDL.md"
+  ]
 }
