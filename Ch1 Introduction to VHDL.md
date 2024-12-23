@@ -24,7 +24,7 @@
 	* Secondary design units are always related to a primary design unit. 
 	* Libraries are collections of primary and secondary design units.
 
-# Entity
+# 1.2 Entity
 * A VHDL entity specifies the name of the entity, the ports of the entity, and entity-related information.
 * Entity example:
 	```vhdl
@@ -44,7 +44,7 @@
 		* 1 output port is of type **BIT**.
 	* The entity describes the interface to the outside world. It specifies the number of ports, the direction of the ports, and the type of the ports.
 
-# Architecture
+# 1.3 Architecture
 * The architecture describes the underlying functionality of the entity and contains the statements that model the behavior of the entity.
 * An entity can have multiple architectures describing the behavior of the entity.
 	* 1 architecture could be a behavioral description, and another could be a structural description.
@@ -76,7 +76,18 @@
 	* The entity the architecture is describing is called mux.
 	* The textual area between the keyword **ARCHITECTURE** and the keyword **BEGIN** is where **local signals** and components are declared for later use.
 
-# Concurrent Signal Assignment
+# 1.4 Concurrent Signal Assignment
+* Inside a VHDL architecture, there is no specified ordering of the assignment statements. The order of execution is solely specified by **events** occurring on signals that the assignment statements are sensitive to.
+* Example:
+	```vhdl
+	select <= 0 WHEN s0 = ‘0’ AND s1 = ‘0’ ELSE
+			1 WHEN s0 = ‘1’ AND s1 = ‘0’ ELSE
+			2 WHEN s0 = ‘0’ AND s1 = ‘1’ ELSE
+			3;
+	```
+	* Signal **select** will get a numeric value assigned to it based on the values of s0 and s1. 
+	* This statement is executed whenever either signal s0 or signal s1 has an event occur on it. An event on a signal is a change in the value of that signal. A
+signal assignment statement is said to be sensitive to changes on any signals that are to the right of the <= symbol.
 
 		
 
