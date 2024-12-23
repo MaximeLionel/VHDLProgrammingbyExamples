@@ -2,22 +2,22 @@
 
 # 1.1 VHDL Terms
 * Basic VHDL building blocks:
-	* Entity - An entity is the most basic building block in a design.
-	* Architecture:
+	* Entity (实体) - An entity is the most basic building block in a design.
+	* Architecture (架构):
 		* The architecture describes the behavior of the entity.
 		* A single entity can have multiple architectures.
 		* One architecture might be behavioral while another might be a structural description of the design.
-	* Configuration:
+	* Configuration (配置):
 		* A configuration statement is used to bind a component instance to an entity-architecture pair.
 		* A configuration can be considered like a parts list for a design. It describes which behavior to use for each entity, much like a parts list describes which part to use for each part in the design.
-	* Package - A package is a collection of commonly used data types and subprograms used in a design.
+	* Package (包) - A package is a collection of commonly used data types and subprograms used in a design.
 	* Driver:
 		* Driver is a source on a signal.
 		* If a signal is driven by two sources, then when both sources are active, the signal will have 2 drivers.
 	* Bus - a bus is a special kind of signal that may have its drivers turned off.
-	* Attribute - An attribute is data that are attached to VHDL objects or predefined data about VHDL objects.
-	* Generic - A generic is VHDL’s term for a parameter that passes information to an entity.
-	* Process - A process is the basic unit of execution in VHDL.
+	* Attribute (属性) - An attribute is data that are attached to VHDL objects or predefined data about VHDL objects.
+	* Generic (通用参数) - A generic is VHDL’s term for a parameter that passes information to an entity.
+	* Process (进程) - A process is the basic unit of execution in VHDL.
 * VHDL Descriptions consist of primary design units and secondary design units. 
 	* The primary design units are the Entity and the Package. 
 	* The secondary design units are the Architecture and the Package Body. 
@@ -213,9 +213,18 @@ END netlist;
 	```
 	* In this example are a number of component instantiation statements (组件实例化语句), which are labeled U1-U7.
 	* Notice component instantiation statement U7:
-```vhdl
-U7 : orgate(x2 => b, x1 => a, x4 => d, x3 => c, x => x);
-```
+		```vhdl
+		U7 : orgate(x2 => b, x1 => a, x4 => d, x3 => c, x => x);
+		```
+		* Check the component declaration:
+		```vhdl
+		COMPONENT orgate 
+			PORT(a, b, c, d : IN bit; x : OUT BIT);
+		END COMPONENT;
+		```
+		* This statement uses **named association** (命名关联) to match the ports and signals to each other. 
+		* For instance port x2 of the orgate is connected to port b of the entity with the first association clause. 
+		* The last instantiation clause connects port x of the orgate component to port x of the entity。
 
 
 
