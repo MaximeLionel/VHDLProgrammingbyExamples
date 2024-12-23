@@ -275,7 +275,11 @@ VARIABLE sel : INTEGER;
 * The declarative part contains a variable declaration that declares local variable `sel`. 
 * This variable is used locally to contain the value computed based on ports `s0` and `s1`.
 
-# Process Statement Part
+# 1.11 Process Statement Part
+* The statement part of the process starts at the keyword **BEGIN** and ends at the **END PROCESS** line.
+* The order of the statements in the architecture did not make any difference; however, this is not true inside the process. The order of execution is the order of the statements in the process statement.
+
+# 1.12 Process Execution
 
 
 
