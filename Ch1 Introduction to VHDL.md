@@ -275,6 +275,8 @@ VARIABLE sel : INTEGER;
 * The declarative part contains a variable declaration that declares local variable `sel`. 
 * This variable is used locally to contain the value computed based on ports `s0` and `s1`.
 
+# Process Statement Part
+
 
 
 
