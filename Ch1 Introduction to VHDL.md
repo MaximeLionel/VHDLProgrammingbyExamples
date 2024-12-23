@@ -47,22 +47,31 @@
 # Architecture
 * The architecture describes the underlying functionality of the entity and contains the statements that model the behavior of the entity.
 * Example of architecture added:
-```vhdl
-ARCHITECTURE dataflow OF mux IS
-	SIGNAL select : INTEGER;
-BEGIN
-	select <= 0 WHEN s0 = ‘0’ AND s1 = ‘0’ ELSE
-		1 WHEN s0 = ‘1’ AND s1 = ‘0’ ELSE
-		2 WHEN s0 = ‘0’ AND s1 = ‘1’ ELSE
-		3;
-		
-	x <= a AFTER 0.5 NS WHEN select = 0 ELSE
-		b AFTER 0.5 NS WHEN select = 1 ELSE
-		c AFTER 0.5 NS WHEN select = 2 ELSE
-		d AFTER 0.5 NS;
-		
-END dataflow;
-```
+	```vhdl
+	ENTITY mux IS
+		PORT ( a, b, c, d : IN BIT;
+			s0, s1 : IN BIT; 
+			x, : OUT BIT);
+	END mux;
+	
+	ARCHITECTURE dataflow OF mux IS
+		SIGNAL select : INTEGER;
+	BEGIN
+		select <= 0 WHEN s0 = ‘0’ AND s1 = ‘0’ ELSE
+			1 WHEN s0 = ‘1’ AND s1 = ‘0’ ELSE
+			2 WHEN s0 = ‘0’ AND s1 = ‘1’ ELSE
+			3;
+			
+		x <= a AFTER 0.5 NS WHEN select = 0 ELSE
+			b AFTER 0.5 NS WHEN select = 1 ELSE
+			c AFTER 0.5 NS WHEN select = 2 ELSE
+			d AFTER 0.5 NS;
+			
+	END dataflow;
+	```
+	* Keyword **ARCHITECTURE** signifies that this statement describes an architecture for an entity.
+	* The architecture name is dataflow.
+	* The entity the architecture is describing is called mux.
 
 
 
