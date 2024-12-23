@@ -226,6 +226,37 @@ END netlist;
 		* For instance port x2 of the orgate is connected to port b of the entity with the first association clause. 
 		* The last instantiation clause connects port x of the orgate component to port x of the entity。
 
+# Sequential Behavior
+* Another way to describe the functionality of the mux is to use a process statement to describe the functionality in an algorithmic representation.
+```vhdl
+ARCHITECTURE sequential OF mux IS
+	(a, b, c, d, s0, s1 )
+	VARIABLE sel : INTEGER;
+
+	BEGIN
+		IF s0 = ‘0’ and s1 = ‘0’ THEN
+			sel := 0;
+		ELSIF s0 = ‘1’ and s1 = ‘0’ THEN
+			sel := 1;
+		ELSIF s0 = ‘0’ and s1 = ‘0’ THEN
+			sel := 2;
+		ELSE 
+			sel := 3;
+		END IF;
+		
+		CASE sel IS
+			WHEN 0 =>
+				x <= a;
+			WHEN 1 =>
+				x <= b;
+			WHEN 2 =>
+				x <= c;
+			WHEN OTHERS =>
+				x <= d;
+		END CASE;
+	END PROCESS;
+END sequential;
+```
 
 
 
