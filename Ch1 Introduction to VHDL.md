@@ -282,6 +282,12 @@ VARIABLE sel : INTEGER;
 # 1.12 Process Execution
 * Take the example above:
 ```vhdl
+ENTITY mux IS
+	PORT ( a, b, c, d : IN BIT;
+		s0, s1 : IN BIT; 
+		x, : OUT BIT);
+END mux;
+
 ARCHITECTURE sequential OF mux IS
 	(a, b, c, d, s0, s1 )
 	VARIABLE sel : INTEGER;
