@@ -1,5 +1,6 @@
 {
   "cssTheme": "Blue Topaz",
-  "baseFontSize": 20,
-  "textFontFamily": "Courier"
+  "baseFontSize": 24,
+  "textFontFamily": "Courier",
+  "theme": "obsidian"
 }
