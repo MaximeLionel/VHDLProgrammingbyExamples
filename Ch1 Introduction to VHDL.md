@@ -114,6 +114,22 @@
 	```
 	* Suppose that we have a steady-state condition where both s0 and s1 have a value of 0, and signals a, b, c, and d currently have a value of 0.
 	* Signal x wil have a 0 value because it is assigned the value of signal a whenever signals s0 and s1 are both 0.
+	* **Event 1** - signal a changes its value to 1.
+		* The first assignment below will not execute because this statement is **not sensitive** to changes to signal a.
+		```vhdl
+		select <= 0 WHEN s0 = ‘0’ AND s1 = ‘0’ ELSE
+				1 WHEN s0 = ‘1’ AND s1 = ‘0’ ELSE
+				2 WHEN s0 = ‘0’ AND s1 = ‘1’ ELSE
+				3;
+		```
+		* The second signal assignment statement will execute because it is **sensitive** to events on signal a.
+		```vhdl
+		x <= a AFTER 0.5 NS WHEN select = 0 ELSE
+				b AFTER 0.5 NS WHEN select = 1 ELSE
+				c AFTER 0.5 NS WHEN select = 2 ELSE
+				d AFTER 0.5 NS;
+		```
+		* Output port x will now change to 1.
 
 		
 
