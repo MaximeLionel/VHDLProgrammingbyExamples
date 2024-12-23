@@ -226,7 +226,7 @@ END netlist;
 		* For instance port x2 of the orgate is connected to port b of the entity with the first association clause. 
 		* The last instantiation clause connects port x of the orgate component to port x of the entity。
 
-# Sequential Behavior
+# 1.8 Sequential Behavior
 * Another way to describe the functionality of the mux is to use a process statement to describe the functionality in an algorithmic representation.
 ```vhdl
 ARCHITECTURE sequential OF mux IS
@@ -257,6 +257,23 @@ ARCHITECTURE sequential OF mux IS
 	END PROCESS;
 END sequential;
 ```
+* The architecture contains only one statement, called a process statement. 
+* It starts at the line beginning with the keyword **PROCESS** and ends with the line that contains **END PROCESS**. 
+* All the statements between these 2 lines are considered part of the process statement.
+
+# 1.9 Process Statements
+* The process statement consists of a number of parts: 
+	* the sensitivity list (敏感信号列表); 
+	* the process declarative part; 
+	* the statement part.
+
+# 1.10 Process Declarative Region
+* The process declarative part consists of the area between the end of the sensitivity list and the keyword **BEGIN**.
+```vhdl
+VARIABLE sel : INTEGER;
+```
+* The declarative part contains a variable declaration that declares local variable `sel`. 
+* This variable is used locally to contain the value computed based on ports `s0` and `s1`.
 
 
 
