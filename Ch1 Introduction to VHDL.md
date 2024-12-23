@@ -280,7 +280,41 @@ VARIABLE sel : INTEGER;
 * The order of the statements in the architecture did not make any difference; however, this is not true inside the process. The order of execution is the order of the statements in the process statement.
 
 # 1.12 Process Execution
+* Take the example above:
+```vhdl
+ARCHITECTURE sequential OF mux IS
+	(a, b, c, d, s0, s1 )
+	VARIABLE sel : INTEGER;
 
+	BEGIN
+		IF s0 = ‘0’ and s1 = ‘0’ THEN
+			sel := 0;
+		ELSIF s0 = ‘1’ and s1 = ‘0’ THEN
+			sel := 1;
+		ELSIF s0 = ‘0’ and s1 = ‘0’ THEN
+			sel := 2;
+		ELSE 
+			sel := 3;
+		END IF;
+		
+		CASE sel IS
+			WHEN 0 =>
+				x <= a;
+			WHEN 1 =>
+				x <= b;
+			WHEN 2 =>
+				x <= c;
+			WHEN OTHERS =>
+				x <= d;
+		END CASE;
+	END PROCESS;
+END sequential;
+```
+* Assume that `s0` changes to 0:
+	* Because `s0` is in the **sensitivity list** for the process statement, the process is invoked.
+	* Each statement in the process is then executed **sequentially**.
+* The first check is to see if s0 is equal to a 0. This statement fails because s0 is equal to a 1 and s1t is equal to a 0. The signal assignment statement that follows the first check will not be executed. Instead, the next
+check is performed. This check succeeds and the signal assignment statements following the check for s0 = 1 and s1 = 0 are executed.
 
 
 
