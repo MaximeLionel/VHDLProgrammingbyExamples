@@ -148,7 +148,8 @@
 	* When the event matures (0.5 nanoseconds in the future), signal x receives the new value.
 
 # 1.6 Statement Concurrency
-
+* The first assignment is the only statement to execute when events occur on ports s0 or s1. 
+* The second signal assignment statement does not execute unless an event on signal select occurs or an event occurs on ports a, b, c, d.
 
 
 
