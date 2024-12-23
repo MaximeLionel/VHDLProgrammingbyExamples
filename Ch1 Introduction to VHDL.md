@@ -153,7 +153,8 @@
 * The two signal assignment statements in architecture behave form a behavioral model (行为模型), or architecture, for the mux entity
 
 # 1.7 Structural Designs
-* Another way to write the mux design is to instantiate subcomponents that perform smaller operations of the complete model, which is a structural description of the mux entity.
+* Another way to write the mux design is to instantiate subcomponents (子组件) that perform smaller operations of the complete model, which is a structural description of the mux entity.
+* Example:
 ```vhdl
 ARCHITECTURE netlist OF mux IS
 	COMPONENT andgate 
@@ -178,9 +179,43 @@ BEGIN
 	U7 : orgate(x2 => b, x1 => a, x4 => d, x3 => c, x => x);
 END netlist;
 ```
-* This description uses a number of lower-level components to model the behavior of the mux device: an **inverter** component, an **andgate** component and an **orgate** component.
+
+* Declaration of lower-level components:
+	```vhdl
+	COMPONENT andgate 
+		PORT(a, b, c : IN bit; c : OUT BIT);
+	END COMPONENT;
+	COMPONENT inverter
+		PORT(in1 : IN BIT; x : OUT BIT);
+	END COMPONENT;
+	COMPONENT orgate 
+		PORT(a, b, c, d : IN bit; x : OUT BIT);
+	END COMPONENT;
+	```
+	* This description uses a number of lower-level components to model the behavior of the mux device: an **inverter** component, an **andgate** component and an **orgate** component.
 	* Each of these components is declared in the architecture declaration section, which is between the architecture statement and the **BEGIN** keyword.
-* A number of local signals are used to connect each of the components to form the architecture description. These local signals are declared using the **SIGNAL** declaration.
+
+* Declaration of local signals:
+	```vhdl
+	SIGNAL s0_inv, s1_inv, x1, x2, x3, x4 : BIT;
+	```
+	* A number of local signals are used to connect each of the components to form the architecture description. These local signals are declared using the **SIGNAL** declaration.
+
+* The architecture statements:
+	```vhdl
+	U1 : inverter(s0, s0_inv);
+	U2 : inverter(s1, s1_inv);
+	U3 : andgate(a, s0_inv, s1_inv, x1);
+	U4 : andgate(b, s0, s1_inv, x2);
+	U5 : andgate(c, s0_inv, s1, x3);
+	U6 : andgate(d, s0, s1, x4);
+	U7 : orgate(x2 => b, x1 => a, x4 => d, x3 => c, x => x);
+	```
+	* In this example are a number of component instantiation statements (组件实例化语句), which are labeled U1-U7.
+	* Notice component instantiation statement U7:
+```vhdl
+U7 : orgate(x2 => b, x1 => a, x4 => d, x3 => c, x => x);
+```
 
 
 
