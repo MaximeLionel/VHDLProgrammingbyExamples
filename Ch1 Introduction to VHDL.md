@@ -86,8 +86,7 @@
 			3;
 	```
 	* Signal **select** will get a numeric value assigned to it based on the values of s0 and s1. 
-	* This statement is executed whenever either signal s0 or signal s1 has an event occur on it. An event on a signal is a change in the value of that signal. A
-signal assignment statement is said to be sensitive to changes on any signals that are to the right of the <= symbol.
+	* This statement is executed whenever either signal s0 or signal s1 has an event occur on it. An event on a signal is a change in the value of that signal. A signal assignment statement is said to be **sensitive** to changes on any signals that are to the right of the <= symbol.
 
 		
 
