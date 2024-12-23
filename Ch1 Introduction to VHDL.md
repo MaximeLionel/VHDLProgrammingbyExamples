@@ -1,6 +1,6 @@
 * VHDL has been at the heart of electronic design productivity since initial ratification by the IEEE in 1987.
 
-# VHDL Terms
+# 1.1 VHDL Terms
 * Basic VHDL building blocks:
 	* Entity - An entity is the most basic building block in a design.
 	* Architecture:
@@ -46,6 +46,8 @@
 
 # Architecture
 * The architecture describes the underlying functionality of the entity and contains the statements that model the behavior of the entity.
+* An entity can have multiple architectures describing the behavior of the entity.
+	* 1 architecture could be a behavioral description, and another could be a structural description.
 * Example of architecture added:
 	```vhdl
 	ENTITY mux IS
@@ -72,6 +74,11 @@
 	* Keyword **ARCHITECTURE** signifies that this statement describes an architecture for an entity.
 	* The architecture name is dataflow.
 	* The entity the architecture is describing is called mux.
+	* The textual area between the keyword **ARCHITECTURE** and the keyword **BEGIN** is where **local signals** and components are declared for later use.
+
+# Concurrent Signal Assignment
+
+		
 
 
 
