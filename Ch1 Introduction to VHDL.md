@@ -36,3 +36,12 @@
 	```
 	* Keyword **ENTITY** signifies that this is the start of an entity statement.
 	* The name of the entity is mux.
+	* The entity has 7 ports in the **PORT** clause. 
+		* 6 ports are of mode **IN**.
+		* 1 port is of mode **OUT**. 
+		* 4 data input ports (a, b, c, d) are of type **BIT**. 
+		* 2 multiplexer select inputs, s0 and s1, are also of type **BIT**. 
+		* 1 output port is of type **BIT**.
+	* The entity describes the interface to the outside world. It specifies the number of ports, the direction of the ports, and the type of the ports.
+
+# Architecture
