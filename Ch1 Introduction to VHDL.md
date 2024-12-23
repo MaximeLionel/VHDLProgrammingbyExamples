@@ -140,8 +140,14 @@
 		```
 		* With the value of s0 equal to 1 and s1 equal to 0, signal select will receive a new value of 1.
 		* This new value of signal select will cause an event to occur on signal select, causing the second signal assignment statement to execute.
-		
+		* The new assignment will cause port x to change from a 0 to a 1.
 
+# 1.5 Event Scheduling
+* The mechanism for delaying the new value is called **scheduling an event**.
+	* By assigning port x a new value, an event was scheduled 0.5 nanoseconds in the future that contains the new value for signal x. 
+	* When the event matures (0.5 nanoseconds in the future), signal x receives the new value.
+
+# 1.6 Statement Concurrency
 
 
 
