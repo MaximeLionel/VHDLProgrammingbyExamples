@@ -27,11 +27,12 @@
 # Entity
 * A VHDL entity specifies the name of the entity, the ports of the entity, and entity-related information.
 * Entity example:
-```vhdl
-ENTITY mux IS
-	PORT ( a, b, c, d : IN BIT;
-		s0, s1 : IN BIT; 
-		x, : OUT BIT);
-END mux;
-```
-* Keyword **ENTITY** signifies that this is the start of an entity statement.
+	```vhdl
+	ENTITY mux IS
+		PORT ( a, b, c, d : IN BIT;
+			s0, s1 : IN BIT; 
+			x, : OUT BIT);
+	END mux;
+	```
+	* Keyword **ENTITY** signifies that this is the start of an entity statement.
+	* The name of the entity is mux.
