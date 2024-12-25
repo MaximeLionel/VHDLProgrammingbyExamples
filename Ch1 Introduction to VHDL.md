@@ -336,7 +336,9 @@ END sequential;
 		x <= b;
 		```
 
-
+# 1.14 Architecture Selection
+* 3 architectures have been described for one entity. Which architecture should be used to model the mux device? It depends on the accuracy wanted and if structural information is required.
+	* If the model is going to be used to drive a layout tool, then the structural architecture netlist is probably most appropriate.
 
 
 
