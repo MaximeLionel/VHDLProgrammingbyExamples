@@ -339,6 +339,11 @@ END sequential;
 # 1.14 Architecture Selection
 * 3 architectures have been described for one entity. Which architecture should be used to model the mux device? It depends on the accuracy wanted and if structural information is required.
 	* If the model is going to be used to drive a layout tool, then the structural architecture netlist is probably most appropriate.
+	* If a structural model is not wanted for some other reason, then a more efficient model can be used (the other 2 architectures).
+	* If the modeler wants to write concurrent VHDL code, then the style of architecture dataflow is the way to go; otherwise, architecture sequential should be chosen.
+
+# 1.15 Configuration Statements
+* An entity can have more than one architecture, but how does the modeler choose which architecture to use in a given simulation?
 
 
 
