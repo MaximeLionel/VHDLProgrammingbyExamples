@@ -344,6 +344,41 @@ END sequential;
 
 # 1.15 Configuration Statements
 * An entity can have more than one architecture, but how does the modeler choose which architecture to use in a given simulation?
+	* The configuration statement maps component instantiations to entities.
+	* With this powerful statement, the modeler can pick and choose which architectures are used to model an entity at every level in the design.
+* Configuration example:
+	```vhdl
+	CONFIGURATION muxcon1 OF mux IS
+		FOR netlist
+			FOR U1,U2 : inverter USE ENTITY WORK.myinv(version1);
+			END FOR;
+			FOR U3,U4,U5,U6 : andgate USE ENTITY WORK.myand(version1);
+			END FOR;
+			FOR U7 : orgate USE ENTITY WORK.myor(version1);
+			END FOR;
+		END FOR;
+	END muxcon1;
+	```
+	* The function of the configuration statement is to spell out exactly which architecture to use for every component instance in the model.
+	* This is a configuration named `muxcon1` for entity `mux`. Use architecture `netlist` as the architecture for the topmost entity, which is `mux`. 
+	* For the 2 component instances `U1` and `U2` of type `inverter` instantiated in the `netlist` architecture, use entity `myinv`, architecture `version1` from the library called `WORK`. 
+	* For the component instances `U3`-`U6` of type `andgate`, use entity `myand`, architecture `version1` from library `WORK`. 
+	* For component instance `U7` of type `orgate` use entity `myor`, architecture `version1` from library `WORK`. 
+	* All of the entities now have architectures specified for them. Entity `mux` has architecture `netlist`, and the other components have architectures named `version1` specified.
+
+# 1.16 Power of Configurations
+* For compiling the entities, architectures, and the configuration specified earlier, the power of the configuration is that you do not need to recompile your complete design; you only need to recompile the new configuration.
+* Configuration example:
+	```vhdl
+	CONFIGURATION muxcon2 OF mux IS
+		FOR dataflow
+		END FOR;
+		END muxcon2;
+	```
+
+
+
+
 
 
 
