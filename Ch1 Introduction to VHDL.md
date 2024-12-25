@@ -375,6 +375,8 @@ END sequential;
 		END FOR;
 		END muxcon2;
 	```
+	* This is a configuration named `muxcon2` for entity `mux`. Use architecture `dataflow` for the topmost entity, which is `mux`. 
+	* By compiling this configuration, the architecture `dataflow` is selected for entity `mux` in this simulation.
 
 
 
