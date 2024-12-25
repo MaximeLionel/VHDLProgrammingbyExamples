@@ -316,11 +316,25 @@ ARCHITECTURE sequential OF mux IS
 	END PROCESS;
 END sequential;
 ```
-* Assume that `s0` changes to 0:
+* Assume that `s0` changes to 1:
 	* Because `s0` is in the **sensitivity list** for the process statement, the process is invoked.
 	* Each statement in the process is then executed **sequentially**.
-* The first check is to see if s0 is equal to a 0. This statement fails because s0 is equal to a 1 and s1t is equal to a 0. The signal assignment statement that follows the first check will not be executed. Instead, the next
-check is performed. This check succeeds and the signal assignment statements following the check for s0 = 1 and s1 = 0 are executed.
+* The first check is to see if s0 is equal to a 0. 
+	* This statement fails because s0 is equal to a 1 and s1 is equal to a 0. 
+	* The signal assignment statement that follows the first check will not be executed. 
+* Instead, the next check is performed. This check succeeds and the signal assignment statements following the check for s0 = 1 and s1 = 0 are executed.
+	```vhdl
+	sel := 1;
+	```
+
+# 1.13 Sequential Statements
+* This statement will execute sequentially:
+	* For `IF` statement, whenever a check succeeds, no other checks are done.
+	* The `IF` statement has completed and now the `CASE` statement will execute.
+	* The `CASE` statement will evaluate the value of `sel` computed earlier by the `IF` statement and then execute the appropriate statement that matches the value of `sel`.
+		```vhdl
+		x <= b;
+		```
 
 
 
